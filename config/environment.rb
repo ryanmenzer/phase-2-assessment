@@ -11,6 +11,9 @@ require 'rubygems'
 require 'uri'
 require 'pathname'
 
+require 'bcrypt'
+require 'faker'
+
 require 'sqlite3'
 require 'active_record'
 require 'logger'

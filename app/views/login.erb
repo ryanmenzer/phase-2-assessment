@@ -1,0 +1,29 @@
+<h2>Sign In:</h2>
+<form action="/login" method="POST">
+	<label for="email">Email</label>
+	<input type="email" name="email">
+	<label for="password">Password</label>
+	<input type="password" name="password">
+	<input type="submit" value="SIGN IN">
+</form>
+
+<h2>Sign Up:</h2>
+<form action="/signup" method="POST">
+	<label for="first_name">First Name</label>
+	<input type="text" name="user[first_name]">
+	<label for="last_name">Last Name</label>
+	<input type="text" name="user[last_name]">
+	<br>
+	<br>
+	<label for="email">Email</label>
+	<input type="email" name="user[email]" placeholder="e.g., sample@email.com">
+	<label for="birthdate">Birthdate</label>
+	<input type="date" name="user[birthdate]">
+	<br>
+	<br>
+	<label for="password">Password</label>
+	<input type="password" name="password" placeholder="password">
+	<input type="submit" value="SIGN UP">
+</form>
+<br>
+<p>* You must be signed in to view or create events *</p>

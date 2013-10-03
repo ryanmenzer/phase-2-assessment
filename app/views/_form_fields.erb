@@ -1,0 +1,13 @@
+<div>
+	<label for="name">Name: </label>
+	<input id="name" type="text" name="event[name]" value="<%= @event.try(:name) %>">
+	<label for="location">Location: </label>
+	<input id="location" type="text" name="event[location]" value ="<%= @event.try(:location) %>">
+	<br>
+	<label for="starts_at">Starts At: </label>
+	<input id="starts_at" type="datetime" name="event[starts_at]" placeholder="yyyy-mm-dd hh:mm:ss UTC" value ="<%= @event.try(:starts_at) %>">
+	<label for="ends_at">Ends At: </label>
+	<input id="ends_at" type="datetime" name="event[ends_at]" placeholder="yyyy-mm-dd hh:mm:ss UTC" value ="<%= @event.try(:ends_at) %>">
+	<p>Start and End times must be in this format: yyyy-mm-dd hh:mm:ss UTC</p>
+	<input type="submit">
+</div>

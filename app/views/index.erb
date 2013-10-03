@@ -1,23 +1,51 @@
-<div class="container">
-  <h1>Welcome to Sinatra!</h1>
-  <p>Hello, world!</p>
+<h1 class="welcome">Welcome <%= @user.first_name %></h1>
 
-  <table>
+<h2>Events You Created</h2>
+<table>
+  <thead>
     <tr>
-      <th>File Description</th>
-      <th>File Location</th>
+      <th>Name</th>
+      <th>Location</th>
+      <th>Starts At</th>
+      <th>Ends At</th>
+      <th></th>
     </tr>
+  </thead>
+  <tbody>
+  <% @user.created_events.each do |event| %>
     <tr>
-      <td>This view file</td>
-      <td><code><%= __FILE__.gsub(Sinatra::Application.root, '') %></code></td>
+      <td><%= event.name %></td>
+      <td><%= event.location %></td>
+      <td><%= event.starts_at %></td>
+      <td><%= event.ends_at %></td>
+      <td><a href="/events/<%= event.id %>/edit">EDIT</a></td>
+      <td><form action="/events/<%= event.id %>/delete" method="POST">
+      <input type="submit" value="DELETE"></form></td>
     </tr>
+  <% end %>
+</tbody>
+</table>
+<a id="create_event" href="/events/new">Create New Event</a>
+
+<h2>Events You Have Attended</h2>
+<table>
+  <thead>
     <tr>
-      <td>The layout file</td>
-      <td><code><%= File.expand_path('../layout.erb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
+      <th>Name</th>
+      <th>Location</th>
+      <th>Starts At</th>
+      <th>Ends At</th>
+      <th></th>
     </tr>
+  </thead>
+  <tbody>
+  <% @user.attended_events.each do |event| %>
     <tr>
-      <td>The current controller</td>
-      <td><code><%= File.expand_path('../../controllers/index.rb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
+      <td><%= event.name %></td>
+      <td><%= event.location %></td>
+      <td><%= event.starts_at %></td>
+      <td><%= event.ends_at %></td>
     </tr>
-  </table>
-</div>
+  <% end %>
+</tbody>
+</table>

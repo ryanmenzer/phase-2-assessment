@@ -1,0 +1,27 @@
+<h2>All Events</h2>
+
+<table>
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Location</th>
+			<th>Starts At</th>
+			<th>Ends At</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @events.each do |event| %>
+			<tr>
+				<td><%= event.name %></td>
+				<td><%= event.location %></td>
+				<td><%= event.starts_at %></td>
+				<td><%= event.ends_at %></td>
+				<td>
+					<form action="/events/<%= event.id %>/attend" method="POST">
+						<input type="submit" value="ATTEND">
+					</form>
+				</td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
